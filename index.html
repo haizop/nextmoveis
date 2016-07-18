@@ -405,19 +405,19 @@
         <h2>How can we help your organization thrive?</h2>
         <p><button class="btn contact-button" type="button" role="button">Let us know</button></p>
         <div class='contact-form'>
-          <form name="contact-form" id="contact-form" method="post" role="form" data-toggle="validator">
-            <div class='name'>
-              <input class='form-control email' placeholder='Name' type='text' id="name" name="name" autofocus required data-error="Please enter your first name">
+          <form role="form" disable="true" data-toggle="validator" name="contact-form" id="contact-form">
+            <div class='name form-group'>
+              <input class='form-control email' placeholder='Name' type='text' id="name" name="name" autofocus required>
             </div>
-            <div class='contact'>
-              <input class='form-control email' placeholder='Email Address' type='text' id="email" name="email" required data-error="Please enter your email">
+            <div class='contact form-group'>
+              <input class='form-control email' placeholder='Email Address' type='email' id="email" name="email" required>
             </div>
-            <div class='message'>
-              <textarea class="form-control" placeholder='Your message' id="message" name="message" required data-error="Please enter your message" style="resize: vertical"></textarea>
+            <div class='message form-group'>
+              <textarea class="form-control" placeholder='Your message' id="message" name="message" required style="resize: vertical"></textarea>
             </div>
             <div id="success"> </div> <!-- For success/fail messages -->
-            <footer class="submit-button">
-              <button type="submit">Send your message</button>
+            <footer class="submit-button form-group">
+              <button type="submit" class="btn">Send your message</button>
             </footer>
           </form>
         </div>
@@ -447,9 +447,6 @@
 
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 		<script src="js/cbpAnimatedHeader.js"></script>
