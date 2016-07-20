@@ -1844,7 +1844,7 @@ section .overlay-text {
   text-align: center;
 }
 .grid figure .info h3 {
-  font-size: 1.5em;
+  font-size: 1.0em;
   margin-bottom: 4px;
 }
 .grid figure .info h4 {

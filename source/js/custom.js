@@ -175,6 +175,7 @@ function isotope() {
   var $container = $('#portfolio');
 
   // init
+  
   $container.imagesLoaded( function(){
     $container.isotope({
       // options
