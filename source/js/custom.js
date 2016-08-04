@@ -27,29 +27,16 @@ function init() {
 /* --- owlCarousel ------------- */
 
 function owlCarousel() {
-    $("#team-roster").owlCarousel({
-      lazyLoad : true,
-      items: 3,
-      theme: "owl-theme-main",
-      itemsCustom: [
-        [479,1],
-        [768,3],
-        [880,3]
-      ]
-    });
-
-    $("#intro").owlCarousel({
-      lazyLoad: true,
-      lazyEffect: "fade",
-      singleItem: true,
-      navigation: true,
-      navigationText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-      slideSpeed : 450,
-      pagination: false,
-      transitionStyle: "fade",
-      theme: "owl-theme-featured"
-
-    });
+  $("#team-roster").owlCarousel({
+    lazyLoad : true,
+    theme: "owl-theme-main",
+    itemsCustom: [
+      [100,1],
+      [479,1],
+      [768,3],
+      [880,3]
+    ]
+  });
 }
 
 
@@ -175,7 +162,7 @@ function isotope() {
   var $container = $('#portfolio');
 
   // init
-  
+
   $container.imagesLoaded( function(){
     $container.isotope({
       // options
