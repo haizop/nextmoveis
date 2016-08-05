@@ -17,6 +17,7 @@ function init() {
   onePageScroll();
   scrollAnchor();
   toggleContactForm();
+  handleContactFormSubmit();
 }
 
 /* --- owlCarousel ------------- */
@@ -179,57 +180,64 @@ function toggleContactForm() {
     $(this).toggleClass('active');
     $('.contact-form').slideToggle(300);
   });
+
+  $('#contact-link').click(function() {
+    $('.contact-button').toggleClass('active');
+    $('.contact-form').slideToggle(300);
+  });
 }
 
 // contact form
+function handleContactFormSubmit() {
 
-$('#contact-form').validator().on('submit', function (event) {
-  if (event.isDefaultPrevented()) {
-    $('#success').html("<div class='alert alert-danger'>");
-    $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-      .append( "</button>");
-    $('#success > .alert-danger').append("<strong>Sorry it seems that there is a problem.</strong><br>Please check your entries and try again.");
-    $('#success > .alert-danger').append('</div>');
-  } else {
-    event.preventDefault();
-    var form = $('#contact-form');
-    var formData = $(form).serialize();
-
-    $.ajax({
-      type: 'POST',
-      url: 'https://formspree.io/haizop@gmail.com',
-      data: formData,
-      dataType: "json"
-    })
-    .done(function(response) {
-      // Success message
-      // console.log(response)
-      $('#success').html("<div class='alert alert-success'>");
-      $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-        .append( "</button>");
-      $('#success > .alert-success')
-        .append("<strong>Your message has been sent. </strong>");
-      $('#success > .alert-success')
-        .append('</div>');
-      //clear all fields
-      $('#contact-form').trigger("reset");
-    })
-    .error(function(data) {
-      // Fail message
-      // console.log(data.responseText)
+  $('#contact-form').validator().on('submit', function (event) {
+    if (event.isDefaultPrevented()) {
       $('#success').html("<div class='alert alert-danger'>");
       $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
         .append( "</button>");
-      $('#success > .alert-danger').append("<strong>Sorry, it seems that there is a problem with our email server.</strong><br>Please email us directly at <a href='mailto:connect@nextmove.is?Subject=Message_Me'>connect@nextmove.is</a>.");
+      $('#success > .alert-danger').append("<strong>Sorry it seems that there is a problem.</strong><br>Please check your entries and try again.");
       $('#success > .alert-danger').append('</div>');
-    });
+    } else {
+      event.preventDefault();
+      var form = $('#contact-form');
+      var formData = $(form).serialize();
 
-    $("a[data-toggle=\"tab\"]").click(function(e) {
-      e.preventDefault();
-      $(this).tab("show");
-    });
-  }
-})
+      $.ajax({
+        type: 'POST',
+        url: 'https://formspree.io/haizop@gmail.com',
+        data: formData,
+        dataType: "json"
+      })
+      .done(function(response) {
+        // Success message
+        // console.log(response)
+        $('#success').html("<div class='alert alert-success'>");
+        $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append( "</button>");
+        $('#success > .alert-success')
+          .append("<strong>Your message has been sent. </strong>");
+        $('#success > .alert-success')
+          .append('</div>');
+        //clear all fields
+        $('#contact-form').trigger("reset");
+      })
+      .error(function(data) {
+        // Fail message
+        // console.log(data.responseText)
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append( "</button>");
+        $('#success > .alert-danger').append("<strong>Sorry, it seems that there is a problem with our email server.</strong><br>Please email us directly at <a href='mailto:connect@nextmove.is?Subject=Message_Me'>connect@nextmove.is</a>.");
+        $('#success > .alert-danger').append('</div>');
+      });
+
+      $("a[data-toggle=\"tab\"]").click(function(e) {
+        e.preventDefault();
+        $(this).tab("show");
+      });
+    }
+  })
+}
 
 /*When clicking on Full hide fail/success boxes */
 $('#name').focus(function() {
