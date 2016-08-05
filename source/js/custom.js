@@ -169,6 +169,19 @@ function isotope() {
       itemSelector: '.portfolio-item',
       layoutMode: 'fitRows'
     });
+    var relayout = setInterval(function(){
+      $container.isotope( 'layout' );
+    }, 1000);
+    setTimeout(function(){
+      clearInterval(relayout);
+    }, 3000);
+  });
+
+  $( window ).resize(function() {
+    $container.isotope( 'layout' );
+    setTimeout(function(){
+      $container.isotope( 'layout' );
+    }, 1500);
   });
 
   // filter items on button click
