@@ -1,3 +1,5 @@
-#Website for NextMove - http://www.nextmove.is
+#Website for my company NextMove in Asheville NC - http://www.nextmove.is
 
-Bootstrap, jquery, isotope, etc.
+"New day. New opportunities. With expertise in leadership development, strategic planning, and pubic engagement, NextMove helps organizations access their potential to thrive in change."
+
+Middleman, bootstrap, jquery, isotope, etc.
