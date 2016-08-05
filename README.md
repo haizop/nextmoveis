@@ -1,3 +1,3 @@
-#Website for NextMove - nextmove.is
+#Website for NextMove - http://www.nextmove.is
 
 Bootstrap, jquery, isotope, etc.
